@@ -41,18 +41,18 @@ public class MenuManager {
 	public static void ViewClothesAndAccLocation() {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Clothes and ACC in Home: ");
-		String ClothesAndAccinHome = input.next();
+		String ClothesAndAccinHome = input.nextLine();
 		System.out.print("Clothes and ACC in Domitory: ");
-		String ClothesAndAccinDomitory = input.next();
+		String ClothesAndAccinDomitory = input.nextLine();
 		
 	}
 	
 	public static void EditTypeAndLocationOfClothesAndAcc() {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Location Of ClothesandACC Edit: ");
-		String LocationOfClothesAndAccEdit = input.next();
+		String LocationOfClothesAndAccEdit = input.nextLine();
 		System.out.print("Type Of ClothesandACC Edit: ");
-		String TypeOfClothesAndAccEdit = input.next();
+		String TypeOfClothesAndAccEdit = input.nextLine();
 		
 	}
 
