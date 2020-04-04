@@ -1,2 +1,2 @@
-# ClothesAndAccManagementSystem
+# ClothesManagementSystem
 oop at gnu
