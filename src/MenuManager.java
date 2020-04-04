@@ -4,56 +4,71 @@ public class MenuManager {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int num = 4;
+		int num = 5;
 
-		while(num != 5) {
-			System.out.println("*** ClothesAndAcc Management System Menu ***"); 
-			System.out.println(" 1. View ClothesAndAcc Type "); /* 옷과 장신구 종류를 볼 수 있기 위한 선택 메뉴 출력. */
-			System.out.println(" 2. View ClothesAndAcc Location "); /* 옷과 장신구 위치를 보기 할 수 있기 위한 선택 메뉴 출력. */
-			System.out.println(" 3. Edit TypeAndLocation Of ClothesAndAcc "); /* 옷과 장신구의 종류와 위치를 편집 할 수 있기 위한 선택 메뉴 출력 */
-			System.out.println(" 4. Show a menu"); 
-			System.out.println(" 5. Exit"); 
-			System.out.println("Select one number between 1 - 5:"); /* 번호를 선택할 수 있다는 문구를 출력. */
+		while(num != 6) {
+			System.out.println("*** Clothes Management System Menu ***"); 
+			System.out.println(" 1. Add Clothes "); 
+			System.out.println(" 2. Delete Clothes ");
+			System.out.println(" 3. Edit Clothes "); 
+			System.out.println(" 4. View Clothes ");
+			System.out.println(" 5. Show a menu"); 
+			System.out.println(" 6. Exit"); 
+			System.out.println("Select one number between 1 - 6:"); 
 			num = input.nextInt();
 			if(num == 1) {
-				ViewClothesAndAccType();
+				addClothes();
 			}
 			else if(num == 2) {
-				ViewClothesAndAccLocation();				
+				deleteClothes();				
 			}
 			else if(num == 3) {
-				EditTypeAndLocationOfClothesAndAcc();				
+				editClothes();				
+			}
+			else if(num == 4) {
+				viewClothes();				
 			}
 			else {
 				continue;
 			}
 		}
 	}
-	
-	public static void ViewClothesAndAccType() {
+
+	public static void addClothes() {
 		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Clothes number: ");
+		int clothesNumber = input.nextInt();
 		System.out.print("Clothes type: ");
-		String ClothesType = input.next();
-		System.out.print("Acc type: ");
-		String AccType  = input.next();
+		String clothesType = input.next();
+		System.out.print("Clothes brande: ");
+		String clothesBrande = input.next();
+		System.out.print("Clothes color: ");
+		String clothesColor = input.next();
+		System.out.print("Clothes size: ");
+		int clothesSize = input.nextInt();
+		System.out.print("Clothes location: ");
+		String clothesLocation = input.next();
+	}
+
+	public static void deleteClothes() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Clothes number: ");
+		int clothesNumber = input.nextInt();
+	}
+
+	public static void editClothes() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Clothes number: ");
+		int clothesNumber = input.nextInt();
+
 	}
 	
-	public static void ViewClothesAndAccLocation() {
+	public static void viewClothes() {
 		Scanner input = new Scanner(System.in);
-		System.out.print("Clothes and ACC in Home: ");
-		String ClothesAndAccinHome = input.nextLine();
-		System.out.print("Clothes and ACC in Domitory: ");
-		String ClothesAndAccinDomitory = input.nextLine();
-		
-	}
-	
-	public static void EditTypeAndLocationOfClothesAndAcc() {
-		Scanner input = new Scanner(System.in);
-		System.out.print("Location Of ClothesandACC Edit: ");
-		String LocationOfClothesAndAccEdit = input.nextLine();
-		System.out.print("Type Of ClothesandACC Edit: ");
-		String TypeOfClothesAndAccEdit = input.nextLine();
-		
+		System.out.print("Clothes number: ");
+		int clothesNumber = input.nextInt();		
+
 	}
 
 }
