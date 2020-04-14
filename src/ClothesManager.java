@@ -95,7 +95,7 @@ public class ClothesManager {
 				break;
 			} //if
 		} //for
-	}
+	}//end
 	
 	public void viewClothess() {
 //		System.out.print("Clothes number: ");
