@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import clothes.Clothes;
+import clothes.ShoesClothes;
+
 public class ClothesManager {
 	ArrayList<Clothes> clothess = new ArrayList<Clothes>(); 
 	Scanner input;
@@ -9,20 +12,29 @@ public class ClothesManager {
 	}
 	
 	public void addClothes() {	
-		Clothes clothes = new Clothes();
-		System.out.print("Clothes number: ");
-		clothes.number = input.nextInt();
-		System.out.print("Clothes type: ");
-		clothes.type = input.next();
-		System.out.print("Clothes brande: ");
-		clothes.brande = input.next();
-		System.out.print("Clothes color: ");
-		clothes.color = input.next();
-		System.out.print("Clothes size: ");
-		clothes.size = input.nextInt();
-		System.out.print("Clothes location: ");
-		clothes.location = input.next();
-		clothess.add(clothes);
+		int kind = 0;
+		Clothes clothes;
+		while (kind != 1 && kind != 2) {
+			System.out.print("1 for Shoes ");
+			System.out.print("2 for Accessory");
+			System.out.print("Select num for Clothes Kind between 1 and 2:");
+			kind = input.nextInt();
+			if(kind == 1) {
+				clothes = new Clothes();
+				clothes.getUserInput(input);
+				clothess.add(clothes);
+				break;
+			}
+			else if(kind == 2) {
+				clothes = new ShoesClothes();
+				clothes.getUserInput(input);
+				clothess.add(clothes);
+				break;
+			}
+			else {
+				System.out.print("Select num for Clothes Kind between 1 and 2:");
+			}
+		}
 	}
 
 	public void deleteClothes() {
@@ -30,7 +42,7 @@ public class ClothesManager {
 		int clothesNumber = input.nextInt();
 		int index = -1;
 		for(int i = 0; i<clothess.size(); i++) {
-			if(clothess.get(i).number == clothesNumber) {
+			if(clothess.get(i).getNumber() == clothesNumber) {
 				index = i;
 				break;
 			}
@@ -51,7 +63,7 @@ public class ClothesManager {
 		int clothesNumber = input.nextInt();
 		for(int i = 0; i<clothess.size(); i++) {
 			Clothes clothes = clothess.get(i);
-			if(clothes.number == clothesNumber) {
+			if(clothes.getNumber() == clothesNumber) {
 				int num = -1;
 				while(num != 7) {
 					System.out.println("** Clothes Info Edit Menu **"); 
@@ -66,27 +78,33 @@ public class ClothesManager {
 					num = input.nextInt();
 					if(num == 1) {
 						System.out.print("Clothes number: ");
-						clothes.number = input.nextInt();
+						int number = input.nextInt();
+						clothes.setNumber(number);
 					}
 					else if(num == 2) {
 						System.out.print("Clothes type: ");
-						clothes.type = input.next();				
+						String type = input.next();	
+						clothes.setType(type);
 					}
 					else if(num == 3) {
 						System.out.print("Clothes brande: ");
-						clothes.brande = input.next();				
+						String brande = input.next();
+						clothes.setBrande(brande);
 					}
 					else if(num == 4) {
 						System.out.print("Clothes color: ");
-						clothes.color = input.next();				
+						String color = input.next();
+						clothes.setColor(color);
 					}
 					else if(num == 5) {
 						System.out.print("Clothes size: ");
-						clothes.size = input.nextInt();				
+						int size = input.nextInt();	
+						clothes.setSize(size);
 					}
 					else if(num == 6) {
 						System.out.print("Clothes location: ");
-						clothes.location = input.next();				
+						String location = input.next();		
+						clothes.setLocation(location);
 					}
 					else {
 						continue;
@@ -100,6 +118,7 @@ public class ClothesManager {
 	public void viewClothess() {
 //		System.out.print("Clothes number: ");
 //		int clothesNumber = input.nextInt();
+		System.out.println("# of registered clohtes:" + clothess.size());
 		for(int i = 0; i<clothess.size(); i++) {
 			clothess.get(i).printInfo();
 		}
