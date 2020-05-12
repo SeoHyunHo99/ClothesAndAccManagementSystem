@@ -2,16 +2,20 @@ package clothes;
 
 import java.util.Scanner;
 
-public class Clothes {
+public abstract class  Clothes implements ClothesInput {
 	protected ClothesKind kind = ClothesKind.Shoes;
 	protected int number;
 	protected String type;
 	protected String brande;
 	protected String color;
-	protected int size;
+	protected String size;
 	protected String location;
 	
 	public Clothes() {
+	}
+	
+	public Clothes(ClothesKind kind) {
+		this.kind = kind;
 	}
 	
 	public Clothes(int number, String type) {
@@ -19,7 +23,17 @@ public class Clothes {
 		this.type = type;
 	}
 	
-	public Clothes(int number, String type, String brande, String color, int size, String location) {
+	public Clothes(int number, String type, String brande, String color, String size, String location) {
+		this.number = number;
+		this.type = type;
+		this.brande = brande;
+		this.color = color;
+		this.size = size;
+		this.location = location;	
+	}
+	
+	public Clothes(ClothesKind kind, int number, String type, String brande, String color, String size, String location) {
+		this.kind = kind;
 		this.number = number;
 		this.type = type;
 		this.brande = brande;
@@ -68,11 +82,11 @@ public class Clothes {
 		this.color = color;
 	}
 
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
 
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 
@@ -85,34 +99,65 @@ public class Clothes {
 	}
 
 	
-	public void printInfo() {
-		System.out.println("number:" + number + " type:" + type + " brande:" + brande +" color:" + color + " size:" + size + " location:" + location);
-	}
+	public abstract void printInfo();
 	
-	public void getUserInput(Scanner input) {
-		System.out.print("Clothes number:");
+	public void setClothesNumber( Scanner input) {
+		System.out.print("Clothes number: ");
 		int number = input.nextInt();
 		this.setNumber(number);
-		
-		System.out.print("Clothes type:");
-		String type = input.next();
+	}
+	
+	public void setClothesType( Scanner input) {
+		System.out.print("Clothes type: ");
+		String type = input.next();	
 		this.setType(type);
-		
-		System.out.print("Clothes brande:");
+	}
+	
+	public void setClothesBrand( Scanner input) {
+		System.out.print("Clothes brande: ");
 		String brande = input.next();
 		this.setBrande(brande);
-		
-		System.out.print("Clothes color:");
+	}
+	
+	public void setClothesColor( Scanner input) {
+		System.out.print("Clothes color: ");
 		String color = input.next();
 		this.setColor(color);
-		
-		System.out.print("Clothes size:");
-		int size = input.nextInt();
+	}
+	
+	public void setClothesSize( Scanner input) {
+		System.out.print("Clothes size: ");
+		String size = input.next();	
 		this.setSize(size);
-		
-		System.out.print("Clothes location:");
-		String location = input.next();
+	}
+	
+	public void setClothesLocation( Scanner input) {
+		System.out.print("Clothes location: ");
+		String location = input.next();		
 		this.setLocation(location);
+	}
+	
+	public String getKindString() {
+		String skind ="none";
+		switch(this.kind) {
+		case Shoes:
+			skind = "Shoes.";
+			break;
+		case Accessory:
+			skind = "Accessory.";
+			break;
+		case Outerwear:
+			skind = "Outerwear.";
+			break;
+		case Top:
+			skind = "Top.";
+			break;
+		case Bottom:
+			skind = "Bottom.";
+			break;
+		default:
+		}
+		return skind;
 	}
 
 }

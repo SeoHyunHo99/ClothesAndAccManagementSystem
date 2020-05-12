@@ -6,5 +6,4 @@ public enum ClothesKind {
 	Outerwear,
 	Top,
 	Bottom
-	
 }
