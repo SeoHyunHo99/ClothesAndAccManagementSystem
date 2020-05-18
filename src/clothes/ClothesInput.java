@@ -2,6 +2,8 @@ package clothes;
 
 import java.util.Scanner;
 
+import exception.ColorFormatException;
+
 public interface ClothesInput {
 	
 	public int getNumber();
@@ -12,7 +14,7 @@ public interface ClothesInput {
 	
 	public void setBrande(String brande);
 	
-	public void setColor(String color);
+	public void setColor(String color) throws ColorFormatException;
 	
 	public void setSize(String size);
 	

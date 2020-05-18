@@ -2,6 +2,8 @@ package clothes;
 
 import java.util.Scanner;
 
+import exception.ColorFormatException;
+
 public abstract class  Clothes implements ClothesInput {
 	protected ClothesKind kind = ClothesKind.Shoes;
 	protected int number;
@@ -78,7 +80,11 @@ public abstract class  Clothes implements ClothesInput {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(String color) throws ColorFormatException  {
+		if(!color.contains("color") && !color.equals("")) {
+			throw new ColorFormatException();
+		}
+		
 		this.color = color;
 	}
 
@@ -120,9 +126,16 @@ public abstract class  Clothes implements ClothesInput {
 	}
 	
 	public void setClothesColor( Scanner input) {
-		System.out.print("Clothes color: ");
-		String color = input.next();
-		this.setColor(color);
+		String color = "";
+		while(!color.contains("color")) {
+			System.out.print("Clothes color: ");
+			color = input.next();
+			try {
+				this.setColor(color);
+			} catch (ColorFormatException e) {
+				System.out.println("Incorrect Color Format. put the -color- keyword");
+			}
+		}
 	}
 	
 	public void setClothesSize( Scanner input) {
