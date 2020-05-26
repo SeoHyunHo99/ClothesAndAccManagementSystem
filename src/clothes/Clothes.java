@@ -1,10 +1,16 @@
 package clothes;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.ColorFormatException;
 
-public abstract class  Clothes implements ClothesInput {
+public abstract class  Clothes implements ClothesInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1993701522139124421L;
+	
 	protected ClothesKind kind = ClothesKind.Shoes;
 	protected int number;
 	protected String type;
