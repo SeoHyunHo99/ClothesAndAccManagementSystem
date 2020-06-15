@@ -3,19 +3,25 @@ package gui;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import manager.ClothesManager;
+
 public class WindowFrame extends JFrame {
+	
+	ClothesManager clothesManager;
 	
 	MenuSelection menuselection;
 	ClothesAdder clothesadder;
 	ClothesViewer clothesViewer;
 	
-	public WindowFrame() {
-		this.menuselection = new MenuSelection(this);
-		this.clothesadder = new ClothesAdder(this);
-		this.clothesViewer = new ClothesViewer(this);
-		
+	public WindowFrame(ClothesManager clothesManager) {
 		this.setSize(500,300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("My Frame");
+		
+		this.clothesManager = clothesManager;
+		menuselection = new MenuSelection(this);
+		clothesadder = new ClothesAdder(this);
+		clothesViewer = new ClothesViewer(this, this.clothesManager);
 		
 		this.setupPanel(menuselection);
 		

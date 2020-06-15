@@ -1,9 +1,11 @@
+package manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import clothes.AccessoryClothes;
+import clothes.Clothes;
 import clothes.ClothesInput;
 import clothes.ClothesKind;
 import clothes.OuterwearClothes;
@@ -141,8 +143,14 @@ public class ClothesManager implements Serializable {
 			clothess.get(i).printInfo();
 		}
 	}
-
-
+	
+	public int size() {
+		return clothess.size();
+	}
+	
+	public ClothesInput get(int index) {
+		return (Clothes) clothess.get(index);
+	}
 
 	public void showEditMenu() {
 		System.out.println("** Clothes Info Edit Menu **"); 

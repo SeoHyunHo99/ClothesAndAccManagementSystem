@@ -10,13 +10,23 @@ public interface ClothesInput {
 	
 	public void setNumber(int number);
 	
+	public String getType();
+	
 	public void setType(String type);
+	
+	public String getBrande();
 	
 	public void setBrande(String brande);
 	
+	public String getColor();
+	
 	public void setColor(String color) throws ColorFormatException;
 	
+	public String getSize();
+	
 	public void setSize(String size);
+	
+	public String getLocation();
 	
 	public void setLocation(String location);
 

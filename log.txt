@@ -1,2 +1,0 @@
-5월 26, 2020 2:56:02 오후 log.EventLogger log
-정보: edit a list of clothes
